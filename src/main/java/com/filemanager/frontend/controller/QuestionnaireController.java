@@ -14,6 +14,7 @@ import com.filemanager.utils.transporters.dto.simple.QuestionnaireAnswerDto;
 import com.filemanager.utils.transporters.dto.simple.QuestionnaireDto;
 
 @RestController
+@RequestMapping("/router")
 public class QuestionnaireController {
 
 	@Autowired
@@ -28,8 +29,10 @@ public class QuestionnaireController {
 	}
 
 	@RequestMapping(value = "/updateQuestionnaire", produces = "application/json")
-	public boolean updateQuestionnaire(QuestionnaireDto questionnaire, int oldQuestionnaireId, int oldQuestionId) {
-		return service.updateQuestionnaire(questionnaire, oldQuestionnaireId, oldQuestionId);
+	public boolean updateQuestionnaire(QuestionnaireDto questionnaire,
+			int oldQuestionnaireId, int oldQuestionId) {
+		return service.updateQuestionnaire(questionnaire, oldQuestionnaireId,
+				oldQuestionId);
 	}
 
 	@RequestMapping(value = "/getQuestionnaires", produces = "application/json")
@@ -37,18 +40,23 @@ public class QuestionnaireController {
 		return service.getQuestionnaires();
 	}
 
-	@RequestMapping(value = "/removeQuestionFromQuestionnaire", produces = "application/json", method=RequestMethod.DELETE)
-	public boolean removeQuestionFromQuestionnaire(int questionnaireId, int questionId) {
-		return service.removeQuestionFromQuestionnaire(questionnaireId, questionId);
+	@RequestMapping(value = "/removeQuestionFromQuestionnaire", produces = "application/json", method = RequestMethod.DELETE)
+	public boolean removeQuestionFromQuestionnaire(int questionnaireId,
+			int questionId) {
+		return service.removeQuestionFromQuestionnaire(questionnaireId,
+				questionId);
 	}
 
 	@RequestMapping(value = "/getQuestionnaireById", produces = "application/json")
-	public QuestionnaireDto getQuestionFromQuestionnaire(int questionnaireId, int questionId) {
-		return service.getQuestionFromQuestionnaire(questionnaireId, questionId);
+	public QuestionnaireDto getQuestionFromQuestionnaire(int questionnaireId,
+			int questionId) {
+		return service
+				.getQuestionFromQuestionnaire(questionnaireId, questionId);
 	}
 
-	@RequestMapping(value = "/removeQuestionnaire", produces = "application/json", method=RequestMethod.DELETE)
-	public boolean removeQuestionnaire(int questionnaireId) throws ConstraintException {
+	@RequestMapping(value = "/removeQuestionnaire", produces = "application/json", method = RequestMethod.DELETE)
+	public boolean removeQuestionnaire(int questionnaireId)
+			throws ConstraintException {
 		return service.removeQuestionnaire(questionnaireId);
 	}
 
@@ -58,13 +66,17 @@ public class QuestionnaireController {
 	}
 
 	@RequestMapping(value = "/insertQuestionnaireAnswer", produces = "application/json")
-	public boolean insertQuestionnaireAnswer(QuestionnaireAnswerDto questionnaireAnswer) {
+	public boolean insertQuestionnaireAnswer(
+			QuestionnaireAnswerDto questionnaireAnswer) {
 		return answersService.insertQuestionnaireAnswer(questionnaireAnswer);
 	}
 
 	@RequestMapping(value = "/updateQuestionnaireAnswer", produces = "application/json")
-	public boolean updateQuestionnaireAnswer(QuestionnaireAnswerDto questionnaireAnswer, int oldQuestionnaireId, int oldQuestionId, int oldPacientId) {
-		return answersService.updateQuestionnaireAnswer(questionnaireAnswer, oldQuestionnaireId, oldQuestionId, oldPacientId);
+	public boolean updateQuestionnaireAnswer(
+			QuestionnaireAnswerDto questionnaireAnswer, int oldQuestionnaireId,
+			int oldQuestionId, int oldPacientId) {
+		return answersService.updateQuestionnaireAnswer(questionnaireAnswer,
+				oldQuestionnaireId, oldQuestionId, oldPacientId);
 	}
 
 	@RequestMapping(value = "/getQuestionnaireAnswers", produces = "application/json")
@@ -72,18 +84,24 @@ public class QuestionnaireController {
 		return answersService.getQuestionnaireAnswers();
 	}
 
-	@RequestMapping(value = "/removeQuestionnaireAnswer", produces = "application/json", method=RequestMethod.DELETE)
-	public boolean removeQuestionnaireAnswer(int questionnaireAnswerId, int questionId, int pacientId) {
-		return answersService.removeQuestionnaireAnswer(questionnaireAnswerId, questionId, pacientId);
+	@RequestMapping(value = "/removeQuestionnaireAnswer", produces = "application/json", method = RequestMethod.DELETE)
+	public boolean removeQuestionnaireAnswer(int questionnaireAnswerId,
+			int questionId, int pacientId) {
+		return answersService.removeQuestionnaireAnswer(questionnaireAnswerId,
+				questionId, pacientId);
 	}
 
 	@RequestMapping(value = "/getAnswer", produces = "application/json")
-	public QuestionnaireAnswerDto getAnswer(int questionnaireAnswerId, int questionId, int pacientId) {
-		return answersService.getAnswer(questionnaireAnswerId, questionId, pacientId);
+	public QuestionnaireAnswerDto getAnswer(int questionnaireAnswerId,
+			int questionId, int pacientId) {
+		return answersService.getAnswer(questionnaireAnswerId, questionId,
+				pacientId);
 	}
 
 	@RequestMapping(value = "/getAnswersForQuestionnaire", produces = "application/json")
-	public List<QuestionnaireAnswerDto> getAnswersForQuestionnaire(int questionnaireAnswerId, int pacientId) {
-		return answersService.getAnswersForQuestionnaire(questionnaireAnswerId, pacientId);
+	public List<QuestionnaireAnswerDto> getAnswersForQuestionnaire(
+			int questionnaireAnswerId, int pacientId) {
+		return answersService.getAnswersForQuestionnaire(questionnaireAnswerId,
+				pacientId);
 	}
 }

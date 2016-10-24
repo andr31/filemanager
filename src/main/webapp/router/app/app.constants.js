@@ -1,6 +1,7 @@
 angular.module('mainApp').constant('APPCONST', (function() {
 	// Define your variable
-	var defEndpoint = 'http://pacients.herokuapp.com/filemanager/';
+	//var defEndpoint = 'http://pacients.herokuapp.com/filemanager/';
+	var defEndpoint = '';
 	// Use the variable in your constants
 	return {
 		MODALS : {
